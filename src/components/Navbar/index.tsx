@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import InputSearch from './InputSearch';
 
 const Navbar = () => {
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
         <Link href="/" className="font-bold text-white text-lg md:text-2xl">
           CuyAnimeList
         </Link>
-        <input type="text" placeholder="cari anime...." className="rounded-full p-2 capitalize text-sm md:text-base" />
+        <InputSearch />
       </div>
     </header>
   );
