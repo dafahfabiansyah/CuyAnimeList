@@ -22,6 +22,7 @@ const InputSearch = () => {
   const performSearch = () => {
     const keyword = searchRef.current?.value;
     router.push(`/search/${keyword}`);
+    // reset search bar sesudah input
     if (searchRef.current) {
       searchRef.current.value = '';
     }

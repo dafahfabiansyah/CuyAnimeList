@@ -6,9 +6,9 @@ import Header from '@/components/AnimeList/Header';
 const Page = async () => {
   try {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=10`);
-    console.log(response);
+    // console.log(response);
     const populerAnime = response.data;
-    console.log(response.data);
+    // console.log(response.data);
 
     return (
       <div>
