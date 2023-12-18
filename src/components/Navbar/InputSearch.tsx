@@ -21,10 +21,15 @@ const InputSearch = () => {
 
   const performSearch = () => {
     const keyword = searchRef.current?.value;
-    router.push(`/search/${keyword}`);
-    // reset search bar sesudah input
-    if (searchRef.current) {
-      searchRef.current.value = '';
+
+    // Check if the keyword is not empty before performing the search
+    if (keyword && keyword.trim() !== '') {
+      router.push(`/search/${keyword}`);
+
+      // reset search bar sesudah input
+      if (searchRef.current) {
+        searchRef.current.value = '';
+      }
     }
   };
 

@@ -34,7 +34,17 @@ const Page = async ({ params }: PageParams) => {
     );
   } catch (error) {
     console.error('Error fetching anime data:', error);
-    return <div>Something went wrong while fetching anime data. Please try again later.</div>;
+    return (
+      <div className="min-h-screen max-w-xl mx-auto flex justify-center items-center">
+        <div className="flex justify-center items-center gap-4 flex-col ">
+          <h3 className="text-color-accent text-xl font-bold">Please try again later.</h3>
+          <h3 className="loading" />
+          <Link href="/" className="hover:text-color-accent text-color-primary">
+            Kembali
+          </Link>
+        </div>
+      </div>
+    );
   }
 };
 
