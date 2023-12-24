@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <header className="bg-color-accent shadow-lg sticky">
       <div className="flex justify-between items-center p-4">
-        <Link href="/" className="font-bold text-lg md:text-2xl md:items-center hover:text-color-primary">
+        <Link href="/" className="font-bold text-lg md:text-2xl md:items-center text-color-primary hover:text-color-red transition-all ">
           CuyAnimeList
         </Link>
         <InputSearch />

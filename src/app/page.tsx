@@ -6,14 +6,14 @@ const Page = async () => {
   try {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=10`);
     // console.log(response);
-    const populerAnime = response.data;
+    const TopAnime = response.data;
     // console.log(response.data);
 
     return (
       <div>
         <section>
           <Header title="Anime populer" linkHref="/populer" linkTitle="Lihat Semua" />
-          <AnimeList api={populerAnime} />
+          <AnimeList api={TopAnime} />
         </section>
       </div>
     );

@@ -11,13 +11,14 @@ type PageParams = {
 
 const Page = async ({ params }: PageParams) => {
   try {
-    const keyword = params.keyword; // Use optional chaining to avoid potential issues
+    const keyword = params.keyword;
+    const decodeKeyword = decodeURI(keyword); // Use optional chaining to avoid potential issues
     // if (!keyword) {
     //   // Handle the case where keyword is undefined or falsy
     //   throw new Error(`Keyword is undefined or falsy ${keyword}`);
     // }
 
-    const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${keyword}`;
+    const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${decodeKeyword}`;
     const response = await axios.get(apiUrl);
     // console.log('API Response:', response);
 
@@ -27,7 +28,7 @@ const Page = async ({ params }: PageParams) => {
     return (
       <div>
         <section>
-          <Header title={`pencarian untuk ${keyword} ....`} linkHref={''} linkTitle={''} />
+          <Header title={`pencarian untuk ${decodeKeyword} ....`} linkHref={''} linkTitle={''} />
           <AnimeList api={searchAnime} />
         </section>
       </div>
