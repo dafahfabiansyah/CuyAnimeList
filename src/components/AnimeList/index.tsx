@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import Pagination from '../Utilities/Pagination';
 
 interface AnimeListProps {
   api: {
@@ -18,8 +19,8 @@ interface AnimeListProps {
 
 const AnimeList: React.FC<AnimeListProps> = ({ api }) => {
   return (
-    <div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 h-32 gap-4 px-4">
-      {api.data.map((anime) => {
+    <div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 px-4">
+      {api.data?.map((anime) => {
         return (
           // <Link href={`/${anime.mal_id}`} key={anime.mal_id} className="cursor-pointer max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:text-white">
           <Link href={`/${anime.mal_id}`} key={anime.mal_id} className="cursor-pointer max-w-sm bg-color-primary border border-gray-200 shadow p-1 ">
@@ -28,6 +29,7 @@ const AnimeList: React.FC<AnimeListProps> = ({ api }) => {
           </Link>
         );
       })}
+      {/* <Pagination /> */}
     </div>
   );
 };

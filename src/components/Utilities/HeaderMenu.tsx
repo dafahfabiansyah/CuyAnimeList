@@ -1,10 +1,16 @@
 import React from 'react';
 
-const HeaderMenu = () => {
+interface HeaderMenuProps {
+  title: string;
+}
+
+const HeaderMenu: React.FC<HeaderMenuProps> = ({ title }) => {
   return (
-    <>
-      <div>HeaderMenu</div>
-    </>
+    <div>
+      <div className="p-8">
+        <h3 className="text-center text-2xl text text-color-primary">{title}</h3>
+      </div>
+    </div>
   );
 };
 
