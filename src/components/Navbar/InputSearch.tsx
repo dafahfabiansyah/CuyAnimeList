@@ -33,11 +33,19 @@ const InputSearch = () => {
     }
   };
 
+  // return (
+  //   <div className="relative">
+  //     <input type="text" placeholder="cari anime...." className="rounded-full border p-1 pr-10 text-sm md:text-base" ref={searchRef} onKeyDown={handleKeyBoard} />
+  //     <button className="absolute right-2 top-1/2 transform -translate-y-1/2" onClick={handleSearchInput}>
+  //       <MagnifyingGlass size={32} />
+  //     </button>
+  //   </div>
+  // );
   return (
     <div className="relative">
-      <input type="text" placeholder="cari anime...." className="rounded-full border p-1 pr-10 text-sm md:text-base" ref={searchRef} onKeyDown={handleKeyBoard} />
-      <button className="absolute right-2 top-1/2 transform -translate-y-1/2" onClick={handleSearchInput}>
-        <MagnifyingGlass size={32} />
+      <input placeholder="cari anime..." className="w-full p-2 rounded-full" ref={searchRef} onKeyDown={handleKeyBoard} />
+      <button className="absolute top-2 end-2" onClick={handleSearchInput}>
+        <MagnifyingGlass size={24} />
       </button>
     </div>
   );
