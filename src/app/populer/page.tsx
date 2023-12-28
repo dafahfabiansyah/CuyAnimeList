@@ -5,6 +5,7 @@ import axios from 'axios';
 import HeaderMenu from '@/components/Utilities/HeaderMenu';
 import Pagination from '@/components/Utilities/Pagination';
 import AnimeList from '@/components/AnimeList';
+import { getAnime } from '../service/api-service';
 
 const Page = () => {
   const [page, setPage] = useState(1);
@@ -15,9 +16,11 @@ const Page = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?page=${page}`);
-        const fetchedTopAnime = response.data;
-        setTopAnime(fetchedTopAnime);
+        // const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?page=${page}`);
+        // const TopAnime = await getTopAnime('top/anime', '?limit=10');
+        // const TopAnime = response.data;
+        const TopAnime = await getAnime('top/anime', `page=${page}`);
+        setTopAnime(TopAnime);
       } catch (error) {
         console.error('Error fetching anime data:', error);
         return (
@@ -47,7 +50,7 @@ const Page = () => {
           topAnime && topAnime.pagination ? (
             <AnimeList api={topAnime} />
           ) : (
-            <div>Top anime data is not available.</div>
+            <div className="min-h-screen max-w-xl mx-auto flex justify-center items-center">Top anime data is not available.</div>
           )}
         </section>
       </div>

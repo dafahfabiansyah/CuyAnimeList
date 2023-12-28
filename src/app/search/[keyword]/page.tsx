@@ -2,27 +2,25 @@ import axios from 'axios';
 import AnimeList from '@/components/AnimeList';
 import Link from 'next/link';
 import Header from '@/components/AnimeList/Header';
+import { getAnime } from '@/app/service/api-service';
 
 type PageParams = {
   params: {
-    keyword: string; // Ensure that keyword is a string
+    keyword: string;
   };
 };
 
 const Page = async ({ params }: PageParams) => {
   try {
     const keyword = params.keyword;
-    const decodeKeyword = decodeURI(keyword); // Use optional chaining to avoid potential issues
-    // if (!keyword) {
-    //   // Handle the case where keyword is undefined or falsy
-    //   throw new Error(`Keyword is undefined or falsy ${keyword}`);
-    // }
+    const decodeKeyword = decodeURI(keyword);
 
-    const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${decodeKeyword}`;
-    const response = await axios.get(apiUrl);
+    // const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${decodeKeyword}`;
+    const searchAnime = await getAnime('anime', `q=${decodeKeyword}`);
+    // const response = await axios.get(searchAnime);
     // console.log('API Response:', response);
 
-    const searchAnime = response.data;
+    // const searchAnime = response.data;
     // console.log(searchAnime);
 
     return (

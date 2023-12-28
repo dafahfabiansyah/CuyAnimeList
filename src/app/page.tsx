@@ -1,13 +1,12 @@
-import axios from 'axios';
+// Page.js
+import React from 'react';
 import AnimeList from '@/components/AnimeList';
 import Header from '@/components/AnimeList/Header';
+import { getAnime } from './service/api-service';
 
 const Page = async () => {
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=10`);
-    // console.log(response);
-    const TopAnime = response.data;
-    // console.log(response.data);
+    const TopAnime = await getAnime('top/anime', 'limit=10');
 
     return (
       <div>
@@ -18,10 +17,10 @@ const Page = async () => {
       </div>
     );
   } catch (error) {
-    console.error('Error fetching anime data:', error);
+    console.error('Error handling in Page:', error);
     return (
       <div className="min-h-screen max-w-xl mx-auto flex justify-center items-center">
-        <div className="flex justify-center items-center gap-4 flex-col ">
+        <div className="flex justify-center items-center gap-4 flex-col">
           <h3 className="text-color-accent text-xl font-bold">Please try again later.</h3>
           <h3 className="loading" />
         </div>

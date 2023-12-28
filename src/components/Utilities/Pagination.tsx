@@ -7,24 +7,44 @@ interface pageProps {
 }
 const Pagination: React.FC<pageProps> = ({ page, lastPage, setPage }) => {
   const handleNext = () => {
-    setPage((prevState) => prevState + 1);
-    scrollTo({
+    if (page < lastPage) {
+      setPage((prevState) => prevState + 1);
+      scrollToTop();
+    }
+  };
+
+  const handlePrev = () => {
+    if (page > 1) {
+      setPage((prevState) => prevState - 1);
+      scrollToTop();
+    }
+  };
+
+  const handleFirst = () => {
+    if (page > 1) {
+      setPage(1);
+      scrollToTop();
+    }
+  };
+
+  const handleLast = () => {
+    setPage(lastPage);
+    scrollToTop();
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
       behavior: 'smooth',
       top: 0,
     });
   };
-  const handlePrev = () => {
-    if (page > 1) {
-      setPage((prevState) => prevState - 1);
-      scrollTo({
-        behavior: 'smooth',
-        top: 0,
-      });
-    }
-  };
+
   return (
     <div className="flex justify-center items-center py-4 px-2 gap-4 text-color-primary">
-      <button className="transition-all hover:text-color-accent " onClick={handlePrev}>
+      <button className="transition-all hover:text-color-accent" onClick={handleFirst}>
+        First
+      </button>
+      <button className="transition-all hover:text-color-accent" onClick={handlePrev}>
         Prev
       </button>
       <p>
@@ -32,6 +52,9 @@ const Pagination: React.FC<pageProps> = ({ page, lastPage, setPage }) => {
       </p>
       <button className="transition-all hover:text-color-accent" onClick={handleNext}>
         Next
+      </button>
+      <button className="transition-all hover:text-color-accent" onClick={handleLast}>
+        Last
       </button>
     </div>
   );
