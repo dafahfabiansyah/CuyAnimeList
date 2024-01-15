@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import InputSearch from './InputSearch';
+import UserActionButton from './userActionButton';
 
 const Navbar = () => {
   return (
@@ -10,6 +11,7 @@ const Navbar = () => {
           CuyAnimeList
         </Link>
         <InputSearch />
+        <UserActionButton />
       </div>
     </header>
   );

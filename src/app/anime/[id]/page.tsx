@@ -2,7 +2,7 @@
 
 'use client';
 
-import { getAnime } from '@/app/service/api-service';
+import { getAnime } from '@/service/api-service';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import VideoPlayer from '@/components/Utilities/VideoPlayer';

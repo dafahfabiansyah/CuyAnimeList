@@ -5,7 +5,7 @@ import axios from 'axios';
 import HeaderMenu from '@/components/Utilities/HeaderMenu';
 import Pagination from '@/components/Utilities/Pagination';
 import AnimeList from '@/components/AnimeList';
-import { getAnime } from '../service/api-service';
+import { getAnime } from '../../service/api-service';
 
 const Page = () => {
   const [page, setPage] = useState(1);

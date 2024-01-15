@@ -2,7 +2,7 @@ import axios from 'axios';
 import AnimeList from '@/components/AnimeList';
 import Link from 'next/link';
 import Header from '@/components/AnimeList/Header';
-import { getAnime } from '@/app/service/api-service';
+import { getAnime } from '@/service/api-service';
 
 type PageParams = {
   params: {

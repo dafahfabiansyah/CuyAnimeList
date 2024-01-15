@@ -1,19 +1,29 @@
 // Page.js
+'use client';
 import React from 'react';
 import AnimeList from '@/components/AnimeList';
 import Header from '@/components/AnimeList/Header';
-import { getAnime } from './service/api-service';
+import { getAnime, getNestedAnime } from '../service/api-service';
 
 const Page = async () => {
   try {
     const TopAnime = await getAnime('top/anime', 'limit=10');
-
+    // let RecommendedAnime = await getNestedAnime();
+    // let RecommendedAnime = await getNestedAnime('recommendations/anime', 'entry');
+    // RecommendedAnime = { data: RecommendedAnime };
+    // console.log(RecommendedAnime);
     return (
       <div>
+        {/* populer */}
         <section>
           <Header title="Anime populer" linkHref="/populer" linkTitle="Lihat Semua" />
           <AnimeList api={TopAnime} />
         </section>
+        {/* rekomendasi */}
+        {/* <section>
+          <Header title="Rekomendasi" linkHref="" linkTitle="" />
+          <AnimeList api={RecommendedAnime} />
+        </section> */}
       </div>
     );
   } catch (error) {
